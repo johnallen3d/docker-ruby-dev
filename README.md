@@ -20,18 +20,14 @@ I normally source a shell function that creates a container with relevant files/
 # Gemfury and Heroku credentials
 #
 function docker-ruby() {
-  mkdir -p $HOME/tmp
-  touch $HOME/tmp/pry_history
-  touch $HOME/tmp/bash_history
-
   docker run \
     -it \
     --rm \
     -w /usr/src/app \
     -v $PWD:/usr/src/app \
     -v $HOME/.pryrc:/root/.pryrc \
-    -v $HOME/tmp/pry_history:/root/.pry_history \
-    -v $HOME/tmp/bash_history:/root/.bash_history \
+    -v $HOME/.pry_history:/root/.pry_history \
+    -v $HOME/.bash_history:/root/.bash_history \
     -v $HOME/.gem:/root/.gem \
     -v $HOME/.ssh:/root/.ssh \
     -v $HOME/.gitconfig:/root/.gitconfig \
